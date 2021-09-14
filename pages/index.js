@@ -10,14 +10,61 @@ export default function Home(props) {
 }
 
 const logToConsole = () => {
-  console.log("Clicked")
+  // setTimeout(() => { console.log("Clicked") }, 3000)
+
+  let seconds = 10
+
+  // setTimeout(() => { console.log("10") }, 0)
+  // setTimeout(() => { console.log("9") }, 1000)
+  // setTimeout(() => { console.log("8") }, 2000)
+  withRecursion(seconds)
 }
 
+const withRecursion = (seconds) => {
+  console.log(seconds)
 
+  if (seconds != 0) {
+    setTimeout(() => { withRecursion(seconds - 1) }, 1000)
+  }
+}
 
+// const withRecursion2 = (seconds) => {
+//   if (seconds == 0) return
+//   console.log(seconds)
+//   setTimeout(() => { withRecursion(seconds - 1) }, 1000)
+// }
 
-// what function do I have to call to start a timer
-// make it log "Clicked" 10 seconds after clicking
+// const withInterval = () => {
+//   let seconds = 10
+//   const timer = setInterval(() => {
+//     console.log(seconds)
+//     seconds--
+//   }, 1000)
+// }
 
-// ES6 function differences
-// x browser compatability
+// seconds | result
+// 10      | log 10, call with 9
+// 9       | log 9, call with 8
+
+// const timeleft = 10;
+
+// const countdownTimer = setInterval(() => {
+//   if(timeleft <= 0) {
+//     clearInterval(countdownTimer)
+//   }
+// })
+
+// <button onClick={setTimeout(logToConsole, 10000)}>Start</button>
+
+// const setTimeout(() => {
+//   logToConsole()
+// }, 10000)
+
+// let timeLeft = 10;
+// const countdownTimer = setInterval(() => {
+//   if(timeLeft <= 0) {
+//     clearInterval(countdownTimer)
+//   }
+//   document.getElementById("countdownTimer").innerHTML = timeLeft + 'seconds remaining'
+//   timeLeft -= 1
+// })
